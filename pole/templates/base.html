@@ -1,0 +1,35 @@
+{% load static %}
+{% load auth_extras %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="{% static 'booking/css/main.css' %}">
+	<link rel="icon" href="{% static 'booking/images/Logo-icon-mini.png' %}" type="image/icon">
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=1d3120df-4843-44e3-aefa-ffd5d6939f04&lang=ru_RU"></script>
+	<script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+</head>
+<body>
+
+
+
+    <!--  NAVBAR  -->
+	{% include 'components/_navbar.html' %}
+    <!--  NAVBAR END  -->
+
+
+	{% block main %}
+	{% endblock main %}
+
+
+	<script src="{% static 'booking/js/burger_toggle.js' %}"></script>
+</body>
+</html>

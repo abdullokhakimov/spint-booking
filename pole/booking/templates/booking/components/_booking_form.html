@@ -1,0 +1,63 @@
+<form action="{% url 'save_booking' field.pk %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="detail__content__selection">
+        <div class="detail__content__selection__date">
+            <div class="detail__content__selection__date-text">
+                <svg width="20" height="18" viewBox="0 0 19 17" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path
+                            d="M5.11429 3.10766V0.212158M6.65714 1.65991H10.2571M11.8 3.10766V0.212158M13.8571 1.65991H14.9143C15.4666 1.65991 15.9143 2.10762 15.9143 2.65991V5.52057M15.9143 6.96832V5.52057M15.9143 5.52057H1M1 5.52057V2.65991C1 2.10762 1.44772 1.65991 2 1.65991H3.57143M1 5.52057V13.6897C1 14.2419 1.44772 14.6897 2 14.6897H8.71429M6.14286 12.2767H7.68571M2.54286 12.2767H4.08571M2.54286 9.86382H4.08571M2.54286 7.45091H4.08571M6.14286 7.45091H7.68571M6.14286 9.86382H7.68571M9.22857 7.45091H10.7714"
+                            stroke="#05052C" stroke-width="1.5"/>
+                    <ellipse cx="14.1235" cy="12.4452" rx="4.1235" ry="3.86931" fill="#6B49FF"/>
+                    <path d="M12.2949 12.4662L13.5749 13.5556L15.9522 11.335" stroke="white"/>
+                </svg>
+                <span>Выберите подходящую вам дату:</span>
+            </div>
+            <div class="detail__content__selection__date-input">
+                <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7.90153V5.42327C1 3.76641 2.34315 2.42327 4 2.42327H13.6522C15.309 2.42327 16.6522 3.76641 16.6522 5.42327V7.90153M1 7.90153V15.0754C1 16.7323 2.34315 18.0754 4 18.0754H13.6522C15.309 18.0754 16.6522 16.7323 16.6522 15.0754V7.90153M1 7.90153H16.6522M5.69565 0.0754395V4.77109M11.9565 0.0754395V4.77109"
+                          stroke-width="1.5"/>
+                </svg>
+                <input type="date" name="date" placeholder="Ваберите дату" class="form-control">
+            </div>
+        </div>
+        <div class="detail__content__selection__time">
+            <div class="detail__content__selection__time-text">
+                <svg width="20" height="18" viewBox="0 0 18 16" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.9721 4.28345V8.29938L14.0199 10.0922" stroke="#05052C"
+                          stroke-width="1.5"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M5.30408 9.60465C4.85957 9.82106 4.38403 9.9868 3.88562 10.094C4.84591 12.9685 7.55948 15.0405 10.757 15.0405C14.7572 15.0405 18 11.7977 18 7.79746C18 3.79725 14.7572 0.554443 10.757 0.554443C9.68748 0.554443 8.6721 0.786253 7.75837 1.20237C8.02859 1.62221 8.24584 2.07709 8.40113 2.55834C9.11998 2.23459 9.91745 2.05444 10.757 2.05444C13.9288 2.05444 16.5 4.62568 16.5 7.79746C16.5 10.9692 13.9288 13.5405 10.757 13.5405C8.21659 13.5405 6.06143 11.891 5.30408 9.60465Z"
+                          fill="#05052C"/>
+                    <circle cx="4.1235" cy="5.03659" r="4.1235" fill="#6B49FF"/>
+                    <path d="M2.29483 5.05886L3.57491 6.2198L5.9522 3.85327" stroke="white"/>
+                </svg>
+                <span>Выберите подходящее вам время:</span>
+            </div>
+            <div class="detail__content__selection__time-input">
+                <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_39_229)">
+                        <path stroke-width="0.5px"
+                              d="M7.99103 15.5557C3.63325 15.5557 0.444458 12.3579 0.444458 8.00014C0.444458 3.64235 3.63325 0.44458 7.99103 0.44458C12.3488 0.44458 15.5556 3.63337 15.5556 7.99115C15.5556 12.3489 12.3488 15.5557 7.99103 15.5557ZM7.99103 1.66865C4.5047 1.66865 1.66853 4.50482 1.66853 7.99115C1.66853 11.4775 4.5047 14.3137 7.99103 14.3137C11.4774 14.3137 14.3135 11.4775 14.3135 7.99115C14.3135 4.50482 11.4774 1.66865 7.99103 1.66865Z"
+                              fill="#05052C"/>
+                        <path stroke-width="0.5px"
+                              d="M11.6917 7.55569H8.44445V4.29056C8.44445 3.85413 8.43643 3.55566 8.00001 3.55566C7.56358 3.55566 7.20074 3.85413 7.20074 4.29056V7.99115C7.20074 8.42758 7.55463 8.78146 7.99106 8.78146H11.6917C12.1281 8.78146 12.4445 8.43654 12.4445 8.00011C12.4445 7.56368 12.1283 7.55569 11.6917 7.55569Z"
+                              fill="#05052C"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_39_229">
+                            <rect width="18" height="18" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+
+                <input class="select-time" autocomplete="off" name="time" title="Сначало выберите дату" id="disableTimeRangesExample" placeholder="Выберите время">
+            </div>
+        </div>
+    </div>
+    <div class="detail__content__booking">
+        <span class="detail__content__booking__price">{{ field.price }} 000 UZS</span>
+        <input type="submit" class="detail__content__booking__btn" value="Забронировать">
+    </div>
+</form>

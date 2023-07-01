@@ -1,0 +1,58 @@
+<form method="GET" action="{% url 'field_filter' %}" class="sort">
+    {{ form.as_p }}
+    <div class="container">
+        <div class="sort__forms">
+            <div class="sort__price">
+                <p id="sort__price__min-value"></p>
+
+                <div class="sort__price__range-slider">
+                    <input type="range" class="sort__price__min-price" name="price_min" value="100" min="60" max="160" step="10">
+
+                    <input type="range" class="sort__price__max-price" name="price_max" value="250" min="60" max="160" step="10">
+                </div>
+
+                <p id="sort__price__max-value"></p>
+            </div>
+
+            <div class="sort__selection">
+                <div class="custom-select sort__selection__region">
+                    <svg class="icon-location" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                d="M13.8107 1.37243L1.75995 7.5697C0.934059 7.99443 1.08275 9.2175 1.98634 9.43197L5.70307 10.3141C6.07508 10.4024 6.36417 10.6951 6.44788 11.0682L7.29096 14.8258C7.49807 15.7489 8.75244 15.8949 9.16606 15.044L15.1674 2.69893C15.5876 1.83455 14.6654 0.932887 13.8107 1.37243Z"/>
+                    </svg>
+                    <select name="region" id="">
+                        <option value="Choose...">Выберите район</option>
+                        {% for region in regions %}
+                            <option value="{{ region.slug }}">{{ region.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <input class="sort__selection__date" type="date" min="" max="2023-12-31">
+
+                <input class="sort__selection__time" type="time" step="600" min="07:00" max="23:00">
+            </div>
+
+            <div class="sort__search">
+                <svg class="icon-search" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                            d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+                            stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path stroke="#333333" d="M17.5 17.5L13.875 13.875" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <input name="title_contains" type="search" class="sort__search__input" placeholder="Введите название поля">
+            </div>
+
+        </div>
+
+        <button type="submit" class="sort__btn">
+            <svg class="icon-results" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                        d="M1.35 2.09982H5.9M5.9 2.09982C5.9 -7.16448e-05 8.7 -7.06911e-05 8.7 2.09982M5.9 2.09982C5.9 3.99984 8.7 4.19972 8.7 2.09982M8.7 2.09982H13.25M1.35 6.99982H10.1M10.1 6.99982C10.1 5 13.25 4.99965 13.25 6.99982C13.25 9 10.1 9 10.1 6.99982ZM4.5 11.8998H13.25M4.5 11.8998C4.5 10 1.34999 9.81285 1.35 11.8998C1.35 13.9868 4.5 14 4.5 11.8998Z"/>
+            </svg>
+
+            <span>Показать все результаты</span>
+        </button>
+    </div>
+</form>

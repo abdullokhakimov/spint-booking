@@ -1,0 +1,9 @@
+<div id="slider" class="slider">
+    <div class="slider-content">
+        <div class="slider-content-wrapper">
+            {% for photo in field.images.all %}
+            <img class="slider-content__item image-1" src="{{ photo.image.url }}">
+            {% endfor %}
+        </div>
+    </div>
+</div>

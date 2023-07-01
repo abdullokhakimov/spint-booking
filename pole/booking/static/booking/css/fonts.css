@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'Avenir Next Cry';
+	src: url('../fonts/AvenirNextCyr-Regular.ttf');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Avenir Next Cry';
+	src: url('../fonts/AvenirNextCyr-Medium.ttf');
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Avenir Next Cry';
+	src: url('../fonts/AvenirNextCyr-Bold.ttf');
+	font-weight: 700;
+}

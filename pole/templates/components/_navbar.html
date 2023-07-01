@@ -1,0 +1,14 @@
+{% load static %}
+<nav class="navbar">
+	<div class="container">
+		<a href="{% url 'field_filter' %}" class="navbar__logo"><img src="{% static 'booking/images/Logo.svg' %}" alt=""></a>
+
+		<!--NAVBAR NAV-->
+		{% include 'components/_navbar_nav.html' %}
+		<!--NAVBAR NAV END-->
+
+		<!--BURGER-->
+		{% include 'components/_burger.html' %}
+		<!--BURGER END-->
+	</div>
+</nav>

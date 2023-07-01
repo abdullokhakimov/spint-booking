@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% endblock title %}
+
+
+{% block main %}
+{% if user.is_authenticated %}
+{% if bookings|length != 0 %}
+<div class="my-bookings container" style="flex-direction: row;">
+    {% for message in messages %}
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <h2 class="my-bookings__title">Ваши бронировки</h2>
+    {% for booking in bookings %}
+    {% if datetime.date < booking.date %}
+    <ul class="my-booking__list active">
+        <li class="my-booking__list__title"><a href="{{ booking.field.get_absolute_url }}">{{ booking.field.title }}</a></li>
+
+        <li class="my-booking__list__adress"><a href="{{ booking.field.adress_url }}">{{ booking.field.region }} район, {{ booking.field.adress }}</a>
+        </li>
+
+        <li class="my-booking__list__date">{{ booking.date }}</li>
+
+        <li class="my-booking__list__time">{{ booking.time }}:00 (1 час)</li>
+
+        <li class="my-booking__list__price">{{ booking.field.price }} 000 UZS</li>
+
+        <li class="my-booking__list__status">Активный</li>
+
+        <li>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="my-booking__item__delete" name="booking-id" value="{{ booking.id }}"><span class="my-booking__item__delete__close"></span><span>Удалить</span></button>
+            </form>
+        </li>
+    </ul>
+    {% else %}
+    <ul class="my-booking__list not-active">
+        <li class="my-booking__list__title"><a href="{{ booking.field.get_absolute_url }}">{{ booking.field.title }}</a></li>
+
+        <li class="my-booking__list__adress"><a href="{{ booking.field.adress_url }}">{{ booking.field.region }} район, {{ booking.field.adress }}</a>
+        </li>
+
+        <li class="my-booking__list__date">{{ booking.date }}</li>
+
+        <li class="my-booking__list__time">{{ booking.time }}:00 (1 час)</li>
+
+        <li class="my-booking__list__price">{{ booking.field.price }} 000 UZS</li>
+
+        <li class="my-booking__list__status">Истеченный</li>
+
+        <li>
+            <span class="my-booking__item__delete not-active" title="Истеченные бронирония нельзя удалить"><span class="my-booking__item__delete__close"></span><span>Удалить</span></span>
+        </li>
+    </ul>
+    {% endif %}
+    {% endfor %}
+</div>
+{% else %}
+<div class="my-bookings container not-registered">
+    <img class="my-booking__img" src="{% static 'booking/images/my-booking-register.png' %}" alt="">
+    <h2 class="my-bookings__title">Бронируйте тогда, когда вам удобно</h2>
+    <p class="my-bookings__subtitle">Вы пока не бронировали, совершите сначало бронирование</p>
+    <a href="{% url 'field_filter' %}" class="navbar__client__signin">Посмотреть поля</a>
+</div>
+{% endif %}
+
+{% else %}
+<div class="my-bookings container not-registered">
+    <img class="my-booking__img" src="{% static 'booking/images/my-booking-register.png' %}" alt="">
+    <h2 class="my-bookings__title">Бронируйте тогда, когда вам удобно</h2>
+    <p class="my-bookings__subtitle">Войдите в аккаунт, что бы забронировать</p>
+    <a href="/login" class="navbar__client__signin">Войти в аккаунт</a>
+</div>
+{% endif %}
+{% endblock main %}
