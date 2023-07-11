@@ -104,7 +104,6 @@
 
     if (screenWidth < 576) {
         header.style.height = `${headerHeight}px`;
-        noResult.style.height = `${headerHeight}px`;
         myHTML.style.overflow = "hidden";
     }
 
@@ -132,7 +131,6 @@
 </script>
 
 {% if fields|length != 0 %}
-<script src="{% static 'booking/js/show_map_list.js' %}"></script>
 <script>
 	let center = [41.32145360231076,69.26054294711807];
 	function init() {
@@ -183,14 +181,8 @@
 		map.controls.remove('rulerControl'); // удаляем контрол правил
 	}
     ymaps.ready(init);
-
-
-
-
-
-
-
 </script>
+<script src="{% static 'booking/js/show_map_list.js' %}"></script>
 {% endif %}
 
 
