@@ -1644,6 +1644,8 @@ li.ui-timepicker-selected,
         width: 100%;
         padding: 15px;
         gap: 10px;
+        justify-content: start;
+        margin-top: 50px;
     }
     .no-result__img{
         height: 200px;
