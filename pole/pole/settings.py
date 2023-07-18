@@ -133,14 +133,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = '/home/spintuz/spint.uz/django/static'
 STATICFILES_DIRS = '/home/spintuz/spint.uz/django/static_files'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/spintuz/spint.uz/django/media'
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
